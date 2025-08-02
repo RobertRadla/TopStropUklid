@@ -13,9 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install deps
-        uses: npm install
-
       - name: Install dependencies
         run: npm install
 
@@ -25,8 +22,8 @@ jobs:
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          server: ${{ secrets.ftpx.forpsi.com }}
-          username: ${{ secrets.www.topstropuklid.cz }} 
-          password: ${{ secrets.rWmD73Adcx }}
-          local-dir: build/
-          server-dir: /path/to/your/server/directory
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist/
+          server-dir: /www
